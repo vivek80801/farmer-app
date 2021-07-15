@@ -1,0 +1,26 @@
+{
+  "name": "farmer-app",
+  "version": "1.0.0",
+  "description": "This is a farmer app.",
+  "main": "server.ts",
+  "repository": "https://github.com/vivek80801/farmer-app.git",
+  "author": "vivek80801 <57554760+vivek80801@users.noreply.github.com>",
+  "license": "(GPL-3.0)",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.2",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.3.2",
+    "@types/passport": "^1.0.7",
+    "@types/passport-local": "^1.0.34",
+    "nodemon": "^2.0.12",
+    "ts-node": "^10.1.0",
+    "typescript": "^4.3.5"
+  }
+}
