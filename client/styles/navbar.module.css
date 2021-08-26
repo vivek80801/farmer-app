@@ -1,0 +1,25 @@
+.desktop {
+  padding: 0 0.75rem;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+.desktop > ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.desktop > ul > li {
+  list-style: none;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+}
+
+.desktop > ul > li:hover {
+  background-color: #333;
+}

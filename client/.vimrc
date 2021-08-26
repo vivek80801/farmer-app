@@ -1,3 +1,3 @@
-nnoremap <leader>x :find ./pages/**/*.tsx
-nnoremap <leader>t :find ./pages/**/*.ts
+nnoremap <leader>c :find ./components/**/*.ts
+nnoremap <leader>p :find ./pages/**/*.ts
 nnoremap <leader>s :find ./styles/**/*.css
