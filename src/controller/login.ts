@@ -5,6 +5,6 @@ export const getLogIn = (req: Request, res: Response) => {
 };
 
 export const postLogIn = (req: Request, res: Response) => {
-  const { name, password }: { name: string; password } = req.body;
+  const { name, password }: { name: string; password: string } = req.body;
   res.json({ msg: "ok" });
 };
