@@ -6,6 +6,9 @@
   "repository": "https://github.com/vivek80801/farmer-app.git",
   "author": "vivek80801 <57554760+vivek80801@users.noreply.github.com>",
   "license": "(GPL-3.0)",
+  "scripts":{
+      "dev": "nodemon ./server.ts"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
