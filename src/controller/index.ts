@@ -18,5 +18,6 @@ export const postIndex = (req: Request, res: Response) => {
     .update(password)
     .digest("hex");
   const newUser = new myUser.MyUser(name, email, newPassword);
+  newUser.save();
   res.json({ msg: "ok" });
 };

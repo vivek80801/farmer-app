@@ -1,10 +1,13 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
+import passport from "passport";
 
 export const getLogIn = (req: Request, res: Response) => {
   res.json({ msg: "hello from log in" });
 };
 
-export const postLogIn = (req: Request, res: Response) => {
-  const { name, password }: { name: string; password: string } = req.body;
-  res.json({ msg: "ok" });
+export const postLogIn = (req: Request, res: Response, next: NextFunction) => {
+  passport.authenticate("local", {
+    failureRedirect: "/loginfail",
+    successRedirect: "/dashboard",
+  })(req, res, next);
 };

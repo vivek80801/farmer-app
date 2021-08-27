@@ -1,10 +1,26 @@
-import express, { NextFunction } from "express";
+import express from "express";
+import passport from "passport";
+import session from "express-session";
 import { router } from "./routes/index";
 import { logInRouter } from "./routes/login";
+import { myPassport } from "./controller/services/microservices/passport";
 
 export const app = express();
 
+myPassport(passport);
+
+app.use(
+  session({
+    secret: "my secret",
+    resave: false,
+    saveUninitialized: true,
+    cookie: {},
+  })
+);
+
 app.use(express.json());
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
@@ -20,17 +36,17 @@ app.use((req, res, next) => {
   res.json({ msg: "not found" });
 });
 
-app.use(
-  (
-    err: Error,
-    req: express.Request,
-    res: express.Response,
-    next: NextFunction
-  ) => {
-    if (err) {
-      res.json({ msg: "something went wrong" });
-    } else {
-      next();
-    }
-  }
-);
+//app.use(
+//  (
+//    err: Error,
+//    req: express.Request,
+//    res: express.Response,
+//    next: express.NextFunction
+//  ) => {
+//    if (err) {
+//      res.json({ msg: "something went wrong" });
+//    } else {
+//      next();
+//    }
+//  }
+//);
