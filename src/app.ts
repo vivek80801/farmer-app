@@ -9,6 +9,13 @@ export const app = express();
 
 myPassport(passport);
 
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.setHeader("Access-Control-Allow-Headers", "content-type");
+  res.setHeader("Access-Control-Allow-Methods", "POST");
+  next();
+});
+
 app.use(
   session({
     secret: "my secret",
@@ -21,13 +28,6 @@ app.use(
 app.use(express.json());
 app.use(passport.initialize());
 app.use(passport.session());
-
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-  res.setHeader("Access-Control-Allow-Headers", "content-type");
-  res.setHeader("Access-Control-Allow-Methods", "POST");
-  next();
-});
 
 app.use("/", router);
 app.use("/login", logInRouter);

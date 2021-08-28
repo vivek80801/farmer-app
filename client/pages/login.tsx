@@ -18,7 +18,10 @@ const LogIn: React.FC = (): JSX.Element => {
                 headers: {
                   "content-type": "application/json",
                 },
-                body: JSON.stringify({ name: username, password: password }),
+                body: JSON.stringify({
+                  username: username,
+                  password: password,
+                }),
               });
               const data = await res.json();
               console.log(data);

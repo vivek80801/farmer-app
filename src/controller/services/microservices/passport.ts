@@ -9,19 +9,15 @@ export const myPassport = (passport: PassportStatic) => {
       UserModal.findOne({ username: username })
         .then((user) => {
           if (!user) {
-            console.log("can not find user");
             return done(JSON.stringify({ msg: "can not find user" }), false);
           } else {
             const newPassword = crypto
               .createHash("sha256")
               .update(password)
               .digest("hex");
-            console.log("new passport password => " + newPassword);
             if (user.password === newPassword) {
-              console.log("password matched!!");
               return done(null, user);
             } else {
-              console.log("password did not matched");
               return done(
                 JSON.stringify({ msg: "password did not matched" }),
                 false
@@ -39,7 +35,6 @@ export const myPassport = (passport: PassportStatic) => {
     UserModal.findById(userId)
       .then((user) => {
         if (!user) {
-          console.log("can not find user in deserializeUser");
           return done(JSON.stringify({ msg: "can not find user" }), false);
         } else {
           return done(null, user);
